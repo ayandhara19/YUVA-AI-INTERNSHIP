@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.env
+
+# Raw dataset (preserve locally; documented in README)
+Week 1/student-mat.csv
+student-mat.csv
+
+# OS metadata
+Thumbs.db
+.DS_Store
+
+# Editor settings
+.vscode/
+.idea/
