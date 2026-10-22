@@ -1,0 +1,49 @@
+WEEK 2 REPORT PLAN — Supervised Machine Learning Models
+
+Use this structure for the final Word report. Fill in results only after running supervised_ml.py.
+
+1. Title
+   Week 2: Supervised Machine Learning Models
+
+2. Objective
+   Train and compare supervised regression and classification algorithms using the UCI Student Performance mathematics dataset.
+
+3. Dataset Description
+   Describe student-mat.csv, the target G3, and the pass/fail definition (G3 >= 10). Include the dataset row/column counts printed by the script.
+
+4. Tools and Libraries
+   Python, Pandas, NumPy, Matplotlib, and Scikit-learn.
+
+5. Methodology
+   - Load the semicolon-separated CSV.
+   - Inspect shape, missing values, and duplicates.
+   - Use an 80/20 train/test split with random_state=42.
+   - Fit imputation, scaling, and one-hot encoding only on training data through Pipelines.
+   - Exclude G1 and G2 from regression features; exclude G1, G2, and G3 from classification features to avoid direct target leakage.
+
+6. Regression
+   Target: G3.
+   Models: Linear Regression, Decision Tree Regressor, Random Forest Regressor, KNN Regressor.
+   Metrics: MAE, RMSE, and R-squared.
+   Insert regression_model_comparison.csv and the two regression graphs.
+   Explain that lower MAE/RMSE and higher R-squared are generally preferable.
+
+7. Classification
+   Target: pass (1 if G3 >= 10, otherwise 0).
+   Models: Logistic Regression, Decision Tree Classifier, Random Forest Classifier, KNN Classifier.
+   Metrics: accuracy, precision, recall, F1-score, and confusion matrix.
+   Insert classification_model_comparison.csv, classification_report.txt, and the classification graphs.
+   Explain that the best model should be selected based on the metrics and the task's priorities, not accuracy alone.
+
+8. Results and Comparison
+   Copy actual values from the generated CSV files. Do not invent or estimate scores.
+
+9. Limitations
+   Small educational dataset; one random split; performance may vary with another split; results should not be used to make real-world decisions about students. Excluding G1/G2 changes the prediction problem compared with using all available grades.
+
+10. Conclusion
+   Summarize what was learned about model training, prediction, evaluation, and comparing algorithms. Mention the strongest model only after reviewing actual results.
+
+11. References
+   UCI Machine Learning Repository, Student Performance dataset:
+   https://archive.ics.uci.edu/dataset/320/student+performance
