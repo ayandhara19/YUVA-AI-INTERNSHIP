@@ -1,0 +1,6 @@
+Feature set,Silhouette,Davies-Bouldin
+Income + Spending (used),0.555,0.572
+Age + Spending,0.448,0.757
+Income + Spending + Age,0.417,0.875
+Age + Income,0.396,0.839
+All + Gender (encoded),0.304,1.167

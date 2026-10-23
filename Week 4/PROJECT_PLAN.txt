@@ -1,0 +1,39 @@
+WEEK 4 - AI PROJECT DEPLOYMENT & CAPSTONE : PROJECT PLAN
+=========================================================
+
+Title : Mall Customer Segmentation - Deployed Machine Learning Application
+Data  : Mall_Customers.csv (200 customers: CustomerID, Gender, Age,
+        Annual Income (k$), Spending Score (1-100))
+
+1. OBJECTIVES
+   - Build an end-to-end ML project: preprocessing, training, testing, deployment.
+   - Serialize the trained model with Joblib.
+   - Serve predictions through a Flask web page and a JSON API.
+   - Deliver documentation and a presentation.
+
+2. PIPELINE
+   Step 1  Load and validate data            (train_model.py -> load_and_clean)
+   Step 2  Choose K (elbow + silhouette)     (train_model.py -> select_k)
+   Step 3  Train StandardScaler + K-Means    (sklearn Pipeline)
+   Step 4  Evaluate (silhouette, Davies-Bouldin) and profile each segment
+   Step 5  Serialize pipeline -> models/customer_segmentation.joblib
+   Step 6  Serve model with Flask            (app.py)
+   Step 7  Test with pytest                  (tests/test_app.py)
+   Step 8  Deploy                            (Procfile / render.yaml / gunicorn)
+   Step 9  Experiments + bias check          (compare_models.py)
+
+3. DELIVERABLES
+   [x] Source code        train_model.py, app.py, templates/, static/
+   [x] Serialized model   models/customer_segmentation.joblib + metadata.json
+   [x] Tests              tests/test_app.py (17 tests)
+   [x] Experiments        compare_models.py (algorithms, features, scaling, stability, fairness)
+   [x] Outputs            outputs/ (plots, segmented CSV, screenshot)
+   [x] Documentation      README.md, Week_4_AI_Capstone_Report.docx
+   [x] Presentation       Capstone_Presentation.pptx
+   [x] Deployment config  Procfile, render.yaml, requirements.txt
+
+4. ACCEPTANCE CHECKS
+   - python train_model.py creates the model and outputs without errors.
+   - python app.py starts the server; the home page loads.
+   - POST /predict returns a segment for valid input and HTTP 400 for bad input.
+   - pytest -q passes.

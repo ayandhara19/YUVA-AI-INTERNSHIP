@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mall Customer Segmentation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Mall Customer Segmentation</h1>
+    <p>K-Means model trained on {{ meta.n_samples }} customers &middot;
+       {{ meta.n_clusters }} segments &middot; silhouette {{ meta.silhouette_score }}</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Predict a customer's segment</h2>
+      <label for="income">Annual income (k$)</label>
+      <input id="income" type="number" min="0" max="1000" step="1" value="60">
+
+      <label for="score">Spending score (1&ndash;100)</label>
+      <input id="score" type="number" min="1" max="100" step="1" value="50">
+
+      <button id="go" type="button">Predict segment</button>
+
+      <div id="result" class="result" hidden>
+        <span id="badge" class="badge"></span>
+        <p id="advice"></p>
+      </div>
+      <p id="error" class="error" hidden></p>
+    </section>
+
+    <section class="card">
+      <h2>Segments found by the model</h2>
+      <table>
+        <thead><tr><th>#</th><th>Segment</th><th>Customers</th>
+          <th>Avg income (k$)</th><th>Avg spending</th></tr></thead>
+        <tbody>
+        {% for p in meta.cluster_profiles %}
+          <tr><td>{{ p.Cluster }}</td><td>{{ p.Segment }}</td><td>{{ p.Customers }}</td>
+              <td>{{ p.Avg_Income_k }}</td><td>{{ p.Avg_Spending_Score }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>API: <code>POST /predict</code> &middot; <code>GET /api/info</code> &middot; <code>GET /health</code></footer>
+
+<script>
+const $ = id => document.getElementById(id);
+$("go").addEventListener("click", async () => {
+  $("result").hidden = true; $("error").hidden = true;
+  try {
+    const res = await fetch("/predict", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        annual_income: $("income").value,
+        spending_score: $("score").value
+      })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Request failed");
+    $("badge").textContent = "Segment " + data.cluster + ": " + data.segment;
+    $("advice").textContent = data.recommendation;
+    $("result").hidden = false;
+  } catch (e) {
+    $("error").textContent = e.message;
+    $("error").hidden = false;
+  }
+});
+</script>
+</body>
+</html>

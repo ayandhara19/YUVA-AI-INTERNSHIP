@@ -1,0 +1,60 @@
+{
+  "model": "StandardScaler + KMeans",
+  "features": [
+    "Annual Income (k$)",
+    "Spending Score (1-100)"
+  ],
+  "n_clusters": 5,
+  "n_samples": 200,
+  "silhouette_score": 0.5547,
+  "davies_bouldin_score": 0.5722,
+  "cluster_names": {
+    "0": "Average Shoppers",
+    "1": "Premium Shoppers",
+    "2": "Impulsive Spenders",
+    "3": "Careful Spenders",
+    "4": "Budget Customers"
+  },
+  "cluster_profiles": [
+    {
+      "Cluster": 0,
+      "Segment": "Average Shoppers",
+      "Customers": 81,
+      "Avg_Age": 42.7,
+      "Avg_Income_k": 55.3,
+      "Avg_Spending_Score": 49.5
+    },
+    {
+      "Cluster": 1,
+      "Segment": "Premium Shoppers",
+      "Customers": 39,
+      "Avg_Age": 32.7,
+      "Avg_Income_k": 86.5,
+      "Avg_Spending_Score": 82.1
+    },
+    {
+      "Cluster": 2,
+      "Segment": "Impulsive Spenders",
+      "Customers": 22,
+      "Avg_Age": 25.3,
+      "Avg_Income_k": 25.7,
+      "Avg_Spending_Score": 79.4
+    },
+    {
+      "Cluster": 3,
+      "Segment": "Careful Spenders",
+      "Customers": 35,
+      "Avg_Age": 41.1,
+      "Avg_Income_k": 88.2,
+      "Avg_Spending_Score": 17.1
+    },
+    {
+      "Cluster": 4,
+      "Segment": "Budget Customers",
+      "Customers": 23,
+      "Avg_Age": 45.2,
+      "Avg_Income_k": 26.3,
+      "Avg_Spending_Score": 20.9
+    }
+  ]
+}

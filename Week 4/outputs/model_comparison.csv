@@ -1,0 +1,6 @@
+Algorithm,Clusters,Noise points,Silhouette,Davies-Bouldin
+"DBSCAN (eps=0.35, min=5)",6,23,0.558,0.511
+K-Means (K=5),5,0,0.555,0.572
+Agglomerative / Ward (K=5),5,0,0.554,0.578
+Gaussian Mixture (K=5),5,0,0.554,0.576
+Agglomerative / Single (K=5),5,0,0.276,0.423
