@@ -1,0 +1,17 @@
+WEEK 3 REPORT PLAN
+1. Title: Customer Segmentation using Unsupervised Learning
+2. Abstract / project overview
+3. Problem statement and objectives
+4. Dataset description and data-quality checks
+5. Preprocessing: selected features and standardization
+6. Methods:
+   - K-Means clustering
+   - Hierarchical (Agglomerative) clustering
+   - Elbow method and silhouette score
+7. Implementation and tools
+8. Results: cluster profiles, comparison table, and plots
+9. Discussion and limitations
+10. Conclusion and future improvements
+11. References (add dataset/library references required by your institution)
+
+Important: The included dataset is synthetic demo data. Report metrics only after running the code; do not invent or manually alter results.

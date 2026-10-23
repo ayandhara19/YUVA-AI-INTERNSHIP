@@ -1,0 +1,3 @@
+model,clusters,silhouette_score
+K-Means,4,0.48131611690123904
+Hierarchical (Agglomerative),4,0.46223472745932215
